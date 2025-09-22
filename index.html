@@ -61,47 +61,4 @@
         <div class="price">$1,450/mo</div>
         <div class="desc">Cozy studio steps from the best coffee shops and breweries. Rooftop lounge access included.</div>
       </div>
-      <div class="cta"><button class="btn" onclick="apply('C')">Apply Now ($50)</button></div>
-    </article>
-
-    <article class="card">
-      <div class="hero"><img src="images/unitD_1.jpg" alt="Cherry Creek Modern"></div>
-      <div class="body">
-        <div class="title">Cherry Creek Modern</div>
-        <div class="meta">200 Fillmore St, Denver, CO</div>
-        <div class="price">$2,050/mo</div>
-        <div class="desc">Modern one-bedroom steps from Cherry Creek shopping district. High-end finishes and secure parking.</div>
-      </div>
-      <div class="cta"><button class="btn" onclick="apply('D')">Apply Now ($50)</button></div>
-    </article>
-
-    <article class="card">
-      <div class="hero"><img src="images/unitE_1.jpg" alt="Park Hill Duplex"></div>
-      <div class="body">
-        <div class="title">Park Hill Duplex</div>
-        <div class="meta">2600 Hudson St, Denver, CO</div>
-        <div class="price">$1,825/mo</div>
-        <div class="desc">Spacious 2BR duplex with fenced yard and updated kitchen. Great family neighborhood.</div>
-      </div>
-      <div class="cta"><button class="btn" onclick="apply('E')">Apply Now ($50)</button></div>
-    </article>
-  </section>
-</main>
-
-<script>
-const BACKEND_URL = "https://vigilant-telegram-s1i9.onrender.com";
-async function apply(unit){
-  try{
-    const res = await fetch(`${BACKEND_URL}/create-checkout-session`, {
-      method: "POST",
-      headers: {"Content-Type":"application/json"},
-      body: JSON.stringify({ unit })
-    });
-    const data = await res.json();
-    if(data.url){ location.href = data.url; }
-    else alert("Server not responding.");
-  }catch(e){ alert("Error: " + e.message); }
-}
-</script>
-</body>
-</html>
+      <div class="cta"><button class="btn" onclick="apply('C')">Apply Now ($
