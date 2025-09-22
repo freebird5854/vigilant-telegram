@@ -4,32 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mile High Rentals</title>
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-  <h1>Welcome to Mile High Rentals</h1>
-  <p>Your site is live 🚀</p>
+  <header>
+    <h1>Welcome to Mile High Rentals</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/listings.html">Listings</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </header>
 
-  <button id="checkout">Checkout Example</button>
+  <main>
+    <section>
+      <h2>Featured Rentals</h2>
+      <div id="listings">
+        <p>Rental listings will load here...</p>
+      </div>
+    </section>
+  </main>
 
-  <script>
-    document.getElementById("checkout").addEventListener("click", async () => {
-      try {
-        const res = await fetch("https://YOUR-RENDER-URL.onrender.com/create-checkout-session", {
-          method: "POST"
-        });
+  <footer>
+    <p>&copy; <span id="year"></span> Mile High Rentals</p>
+  </footer>
 
-        const data = await res.json();
-        if (data.url) {
-          window.location.href = data.url;
-        } else {
-          alert("Checkout session failed. Check console for details.");
-          console.error("Error:", data);
-        }
-      } catch (err) {
-        alert("Something went wrong. See console.");
-        console.error("Fetch error:", err);
-      }
-    });
-  </script>
+  <script src="/script.js"></script>
 </body>
 </html>
