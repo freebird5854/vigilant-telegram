@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mile High Rentals</title>
+</head>
+<body>
+  <h1>Welcome to Mile High Rentals</h1>
+  <p>Your site is live 🚀</p>
+  <button id="checkout">Checkout Example</button>
+
+  <script>
+    document.getElementById("checkout").addEventListener("click", async () => {
+      const res = await fetch("/create-checkout-session", { method: "POST" });
+      const data = await res.json();
+      if (data.url) {
+        window.location = data.url;
+      } else {
+        alert("Checkout session failed.");
+      }
+    });
+  </script>
+</body>
+</html>
