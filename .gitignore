@@ -1,14 +1,4 @@
-# Node modules
 node_modules/
-
-# Env files
 .env
-
-# Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# System files
+*.log
 .DS_Store
-Thumbs.db
