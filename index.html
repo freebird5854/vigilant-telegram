@@ -8,16 +8,26 @@
 <body>
   <h1>Welcome to Mile High Rentals</h1>
   <p>Your site is live 🚀</p>
+
   <button id="checkout">Checkout Example</button>
 
   <script>
     document.getElementById("checkout").addEventListener("click", async () => {
-      const res = await fetch("/create-checkout-session", { method: "POST" });
-      const data = await res.json();
-      if (data.url) {
-        window.location = data.url;
-      } else {
-        alert("Checkout session failed.");
+      try {
+        const res = await fetch("https://YOUR-RENDER-URL.onrender.com/create-checkout-session", {
+          method: "POST"
+        });
+
+        const data = await res.json();
+        if (data.url) {
+          window.location.href = data.url;
+        } else {
+          alert("Checkout session failed. Check console for details.");
+          console.error("Error:", data);
+        }
+      } catch (err) {
+        alert("Something went wrong. See console.");
+        console.error("Fetch error:", err);
       }
     });
   </script>
