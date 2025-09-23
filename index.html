@@ -25,6 +25,11 @@
   .btn{padding:10px 14px;border:none;border-radius:10px;background:var(--brand);color:#fff;font-weight:700;cursor:pointer}
   .btn:hover{background:var(--brand-dark)}
 </style>
+<script>
+  function apply(unit) {
+    window.location.href = "https://buy.stripe.com/eVq3cxezDfVm3dX7ZM5J600";
+  }
+</script>
 </head>
 <body>
 <header><h1>Denver Rentals — Available Units</h1></header>
@@ -32,7 +37,7 @@
 <main class="wrap">
   <section class="grid">
     <article class="card">
-      <div class="hero"><img src="images/unitA_1.jpg" alt="LoDo Loft"></div>
+      <div class="hero"><img src="/images/unitA_1.jpg" alt="LoDo Loft"></div>
       <div class="body">
         <div class="title">LoDo Loft</div>
         <div class="meta">1770 Wynkoop St, Denver, CO</div>
@@ -43,7 +48,7 @@
     </article>
 
     <article class="card">
-      <div class="hero"><img src="images/unitB_1.jpg" alt="Wash Park Flats"></div>
+      <div class="hero"><img src="/images/unitB_1.jpg" alt="Wash Park Flats"></div>
       <div class="body">
         <div class="title">Wash Park Flats</div>
         <div class="meta">340 E Alameda Ave, Denver, CO</div>
@@ -54,11 +59,17 @@
     </article>
 
     <article class="card">
-      <div class="hero"><img src="images/unitC_1.jpg" alt="Highlands Studio"></div>
+      <div class="hero"><img src="/images/unitC_1.jpg" alt="Highlands Studio"></div>
       <div class="body">
         <div class="title">Highlands Studio</div>
         <div class="meta">3220 Tejon St, Denver, CO</div>
         <div class="price">$1,450/mo</div>
         <div class="desc">Cozy studio steps from the best coffee shops and breweries. Rooftop lounge access included.</div>
       </div>
-      <div class="cta"><button class="btn" onclick="apply('C')">Apply Now ($
+      <div class="cta"><button class="btn" onclick="apply('C')">Apply Now ($50)</button></div>
+    </article>
+  </section>
+</main>
+
+</body>
+</html>
