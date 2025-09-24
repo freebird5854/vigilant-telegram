@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rental Application</title>
+<style>
+  body { font-family: sans-serif; background: #f6f8fc; padding: 2rem; }
+  form { background: #fff; max-width: 500px; margin: auto; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);}
+  label { display: block; margin-top: 12px; font-weight: bold; }
+  input, textarea { width: 100%; margin-top: 4px; padding: 10px; border: 1px solid #ccc; border-radius: 6px; }
+  button { margin-top: 20px; background: #2563eb; color: #fff; padding: 10px 16px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;}
+</style>
+</head>
+<body>
+<h1>Rental Application</h1>
+<form id="applicationForm">
+  <label>Full Name</label>
+  <input type="text" name="name" required>
+
+  <label>Email</label>
+  <input type="email" name="email" required>
+
+  <label>Phone</label>
+  <input type="tel" name="phone" required>
+
+  <label>Message</label>
+  <textarea name="message" rows="4" placeholder="Tell us about yourself..." required></textarea>
+
+  <button type="submit">Continue to Payment</button>
+</form>
+
+<script>
+document.getElementById("applicationForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const params = new URLSearchParams(new FormData(this));
+  window.location.href = `payment.html?${params.toString()}`;
+});
+</script>
+</body>
+</html>
