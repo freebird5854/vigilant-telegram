@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Application Payment</title>
+<style>
+  body { font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; background: #f6f8fc;}
+  .box { background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); max-width: 400px; text-align: center;}
+  button { background: #2563eb; color: #fff; border: none; padding: 10px 16px; border-radius: 6px; font-weight: bold; cursor: pointer;}
+</style>
+</head>
+<body>
+<div class="box">
+  <h2>Almost there!</h2>
+  <p>Click below to pay the $50 application fee and complete your application.</p>
+  <button onclick="startPayment()">Pay Application Fee</button>
+</div>
+
+<script>
+const BACKEND_URL = "https://YOUR-RENDER-URL.onrender.com"; // Replace with your Render backend URL
+async function startPayment(){
+  try{
+    const res = await fetch(`${BACKEND_URL}/create-checkout-session`, {
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify({ unit: "application" })
+    });
+    const data = await res.json();
+    if(data.url){ window.location.href = data.url; }
+    else alert("Error starting payment.");
+  }catch(err){
+    alert("Server error: " + err.message);
+  }
+}
+</script>
+</body>
+</html>
