@@ -19,17 +19,21 @@
 
 <script>
 const BACKEND_URL = "https://YOUR-RENDER-URL.onrender.com"; // Replace with your Render backend URL
+
 async function startPayment(){
-  try{
+  try {
     const res = await fetch(`${BACKEND_URL}/create-checkout-session`, {
       method: "POST",
       headers: {"Content-Type":"application/json"},
       body: JSON.stringify({ unit: "application" })
     });
     const data = await res.json();
-    if(data.url){ window.location.href = data.url; }
-    else alert("Error starting payment.");
-  }catch(err){
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      alert("Error starting payment. Please try again.");
+    }
+  } catch (err) {
     alert("Server error: " + err.message);
   }
 }
