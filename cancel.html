@@ -13,6 +13,7 @@
     align-items: center;
     height: 100vh;
     margin: 0;
+    flex-direction: column;
   }
   .card {
     background: #fff;
@@ -23,8 +24,16 @@
     width: 90%;
     text-align: center;
   }
-  h1 { color: #dc2626; margin-bottom: 1rem; }
-  p { color: #444; margin-bottom: 2rem; }
+  h1 {
+    color: #dc2626;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  p {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 2rem;
+  }
   a {
     display: inline-block;
     background: #2563eb;
@@ -34,15 +43,18 @@
     text-decoration: none;
     font-weight: bold;
   }
-  a:hover { background: #1d4ed8; }
+  a:hover {
+    background: #1d4ed8;
+  }
 </style>
 </head>
 <body>
   <div class="card">
     <h1>❌ Payment Cancelled</h1>
-    <p>Your payment was not completed. You can return to the home page and try again.</p>
+    <p>Your payment was not completed. You can return to the home page and try again when ready.</p>
     <a href="index.html">Back to Home</a>
   </div>
+
   <footer style="
     background:#f8fafc;
     text-align:center;
