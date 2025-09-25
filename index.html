@@ -43,8 +43,7 @@
 <header><h1>Denver Rentals — Available Units</h1></header>
 
 <main class="grid">
-
-  <!-- LoDo Loft -->
+  <!-- Example carousel card -->
   <article class="card">
     <div class="carousel">
       <img src="images/unitA_1.png" class="active" alt="LoDo Loft">
@@ -57,63 +56,12 @@
       <div class="title">LoDo Loft</div>
       <div class="meta">1770 Wynkoop St, Denver, CO</div>
       <div class="price">$1,725/mo</div>
-      <div class="desc">Industrial-modern loft near Union Station. Exposed brick, open floor plan, large windows.</div>
+      <div class="desc">Industrial-modern loft near Union Station. Exposed brick, open plan, large windows.</div>
     </div>
     <div class="cta"><button class="btn" onclick="window.location.href='application.html'">Apply Now ($50)</button></div>
   </article>
 
-  <!-- Wash Park Flats -->
-  <article class="card">
-    <div class="carousel">
-      <img src="images/unitB_1.png" class="active" alt="Wash Park Flats">
-      <img src="images/unitB_2.png" alt="Wash Park Flats Bedroom">
-      <img src="images/unitB_3.png" alt="Wash Park Flats Kitchen">
-      <button class="prev" onclick="prevSlide(this)">&#10094;</button>
-      <button class="next" onclick="nextSlide(this)">&#10095;</button>
-    </div>
-    <div class="body">
-      <div class="title">Wash Park Flats</div>
-      <div class="meta">340 E Alameda Ave, Denver, CO</div>
-      <div class="price">$1,595/mo</div>
-      <div class="desc">Bright, walkable unit near Washington Park with upgraded kitchen and hardwood floors.</div>
-    </div>
-    <div class="cta"><button class="btn" onclick="window.location.href='application.html'">Apply Now ($50)</button></div>
-  </article>
-
-  <!-- Highlands Studio -->
-  <article class="card">
-    <div class="carousel">
-      <img src="images/unitC_1.png" class="active" alt="Highlands Studio">
-      <!-- Add more Highlands images here if available -->
-      <button class="prev" onclick="prevSlide(this)">&#10094;</button>
-      <button class="next" onclick="nextSlide(this)">&#10095;</button>
-    </div>
-    <div class="body">
-      <div class="title">Highlands Studio</div>
-      <div class="meta">3220 Tejon St, Denver, CO</div>
-      <div class="price">$1,450/mo</div>
-      <div class="desc">Compact studio in the Highlands neighborhood with walking access to cafes & nightlife.</div>
-    </div>
-    <div class="cta"><button class="btn" onclick="window.location.href='application.html'">Apply Now ($50)</button></div>
-  </article>
-
-  <!-- Cherry Creek Modern -->
-  <article class="card">
-    <div class="carousel">
-      <img src="images/unitD_1.png" class="active" alt="Cherry Creek Modern">
-      <!-- Add more Cherry Creek images here if available -->
-      <button class="prev" onclick="prevSlide(this)">&#10094;</button>
-      <button class="next" onclick="nextSlide(this)">&#10095;</button>
-    </div>
-    <div class="body">
-      <div class="title">Cherry Creek Modern</div>
-      <div class="meta">200 Fillmore St, Denver, CO</div>
-      <div class="price">$2,050/mo</div>
-      <div class="desc">Modern, upscale unit steps from Cherry Creek shopping, dining, and nightlife.</div>
-    </div>
-    <div class="cta"><button class="btn" onclick="window.location.href='application.html'">Apply Now ($50)</button></div>
-  </article>
-
+  <!-- Repeat similar <article> blocks for other properties -->
 </main>
 
 <script>
@@ -134,6 +82,16 @@ function prevSlide(btn){
   slides[index].classList.add('active');
 }
 </script>
+
+<footer style="
+  background:#f8fafc;
+  text-align:center;
+  padding:20px 10px;
+  font-size:0.9rem;
+  margin-top:40px;
+  border-top:1px solid #e5e7eb;">
+  <a href="legal.html" style="color:#2563eb; text-decoration:none; font-weight:600; margin:0 8px;">Privacy & Terms</a>
+</footer>
 
 </body>
 </html>
