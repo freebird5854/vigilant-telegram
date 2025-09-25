@@ -12,7 +12,24 @@
   header h1{font-size:2.2rem;background:rgba(0,0,0,0.35);padding:.6rem 1rem;border-radius:12px}
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;max-width:1200px;margin:28px auto;padding:0 16px}
   .card{background:#fff;border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
-  .hero img{width:100%;height:220px;object-fit:cover}
+  .carousel {position:relative;overflow:hidden}
+  .carousel img {display:none;width:100%;height:220px;object-fit:cover}
+  .carousel img.active {display:block}
+  .carousel button.prev,
+  .carousel button.next {
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(0,0,0,0.5);
+    color:#fff;
+    border:none;
+    font-size:1.4rem;
+    padding:6px 10px;
+    cursor:pointer;
+    border-radius:50%;
+  }
+  .carousel button.prev {left:10px}
+  .carousel button.next {right:10px}
   .body{padding:16px}
   .title{font-weight:700;font-size:1.1rem}
   .meta{color:var(--muted);font-size:.92rem}
@@ -26,9 +43,16 @@
 <header><h1>Denver Rentals — Available Units</h1></header>
 
 <main class="grid">
-  <!-- Unit A -->
+
+  <!-- LoDo Loft -->
   <article class="card">
-    <div class="hero"><img src="images/unitA_1.png" alt="LoDo Loft"></div>
+    <div class="carousel">
+      <img src="images/unitA_1.png" class="active" alt="LoDo Loft">
+      <img src="images/unitA_2.png" alt="LoDo Loft Kitchen">
+      <img src="images/unitA_3.png" alt="LoDo Loft Living Room">
+      <button class="prev" onclick="prevSlide(this)">&#10094;</button>
+      <button class="next" onclick="nextSlide(this)">&#10095;</button>
+    </div>
     <div class="body">
       <div class="title">LoDo Loft</div>
       <div class="meta">1770 Wynkoop St, Denver, CO</div>
@@ -38,55 +62,78 @@
     <div class="cta"><button class="btn" onclick="window.location.href='application.html'">Apply Now ($50)</button></div>
   </article>
 
-  <!-- Unit A (extra image) -->
+  <!-- Wash Park Flats -->
   <article class="card">
-    <div class="hero"><img src="images/unitA_2.png" alt="LoDo Loft - Kitchen"></div>
-    <div class="body">
-      <div class="title">LoDo Loft (Kitchen)</div>
-      <div class="meta">1770 Wynkoop St, Denver, CO</div>
-      <div class="price">$1,725/mo</div>
-      <div class="desc">Updated kitchen with quartz counters, stainless appliances, and hardwood floors.</div>
+    <div class="carousel">
+      <img src="images/unitB_1.png" class="active" alt="Wash Park Flats">
+      <img src="images/unitB_2.png" alt="Wash Park Flats Bedroom">
+      <img src="images/unitB_3.png" alt="Wash Park Flats Kitchen">
+      <button class="prev" onclick="prevSlide(this)">&#10094;</button>
+      <button class="next" onclick="nextSlide(this)">&#10095;</button>
     </div>
-    <div class="cta"><button class="btn" onclick="window.location.href='application.html'">Apply Now ($50)</button></div>
-  </article>
-
-  <!-- Unit B -->
-  <article class="card">
-    <div class="hero"><img src="images/unitB_1.png" alt="Wash Park Flat"></div>
     <div class="body">
       <div class="title">Wash Park Flats</div>
       <div class="meta">340 E Alameda Ave, Denver, CO</div>
       <div class="price">$1,595/mo</div>
-      <div class="desc">Bright apartment near Washington Park, perfect for those who love outdoor space.</div>
+      <div class="desc">Bright, walkable unit near Washington Park with upgraded kitchen and hardwood floors.</div>
     </div>
     <div class="cta"><button class="btn" onclick="window.location.href='application.html'">Apply Now ($50)</button></div>
   </article>
 
-  <!-- Unit B (extra image) -->
+  <!-- Highlands Studio -->
   <article class="card">
-    <div class="hero"><img src="images/unitB_2.png" alt="Wash Park Flat - Bedroom"></div>
+    <div class="carousel">
+      <img src="images/unitC_1.png" class="active" alt="Highlands Studio">
+      <!-- Add more Highlands images here if available -->
+      <button class="prev" onclick="prevSlide(this)">&#10094;</button>
+      <button class="next" onclick="nextSlide(this)">&#10095;</button>
+    </div>
     <div class="body">
-      <div class="title">Wash Park Flats (Bedroom)</div>
-      <div class="meta">340 E Alameda Ave, Denver, CO</div>
-      <div class="price">$1,595/mo</div>
-      <div class="desc">Spacious bedroom with plenty of natural light and a view of the park.</div>
+      <div class="title">Highlands Studio</div>
+      <div class="meta">3220 Tejon St, Denver, CO</div>
+      <div class="price">$1,450/mo</div>
+      <div class="desc">Compact studio in the Highlands neighborhood with walking access to cafes & nightlife.</div>
     </div>
     <div class="cta"><button class="btn" onclick="window.location.href='application.html'">Apply Now ($50)</button></div>
   </article>
 
-  <!-- Unit C -->
+  <!-- Cherry Creek Modern -->
   <article class="card">
-    <div class="hero"><img src="images/unitC_1.png" alt="Cherry Creek Modern"></div>
+    <div class="carousel">
+      <img src="images/unitD_1.png" class="active" alt="Cherry Creek Modern">
+      <!-- Add more Cherry Creek images here if available -->
+      <button class="prev" onclick="prevSlide(this)">&#10094;</button>
+      <button class="next" onclick="nextSlide(this)">&#10095;</button>
+    </div>
     <div class="body">
       <div class="title">Cherry Creek Modern</div>
       <div class="meta">200 Fillmore St, Denver, CO</div>
       <div class="price">$2,050/mo</div>
-      <div class="desc">Modern, upscale living steps from Cherry Creek shopping and restaurants.</div>
+      <div class="desc">Modern, upscale unit steps from Cherry Creek shopping, dining, and nightlife.</div>
     </div>
     <div class="cta"><button class="btn" onclick="window.location.href='application.html'">Apply Now ($50)</button></div>
   </article>
 
 </main>
+
+<script>
+function nextSlide(btn){
+  const carousel = btn.closest('.carousel');
+  const slides = carousel.querySelectorAll('img');
+  let index = [...slides].findIndex(img => img.classList.contains('active'));
+  slides[index].classList.remove('active');
+  index = (index + 1) % slides.length;
+  slides[index].classList.add('active');
+}
+function prevSlide(btn){
+  const carousel = btn.closest('.carousel');
+  const slides = carousel.querySelectorAll('img');
+  let index = [...slides].findIndex(img => img.classList.contains('active'));
+  slides[index].classList.remove('active');
+  index = (index - 1 + slides.length) % slides.length;
+  slides[index].classList.add('active');
+}
+</script>
 
 </body>
 </html>
