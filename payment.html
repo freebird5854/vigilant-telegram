@@ -5,33 +5,71 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Application Payment</title>
 <style>
-  body { font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; background: #f6f8fc;}
-  .box { background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); max-width: 400px; text-align: center;}
-  button { background: #2563eb; color: #fff; border: none; padding: 10px 16px; border-radius: 6px; font-weight: bold; cursor: pointer;}
+  body {
+    font-family: sans-serif;
+    background: #f6f8fc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    max-width: 450px;
+    width: 90%;
+    text-align: center;
+  }
+  h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+  p {
+    color: #444;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  button {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    width: 100%;
+  }
+  button:hover {
+    background: #1d4ed8;
+  }
 </style>
 </head>
 <body>
-<div class="box">
-  <h2>Almost there!</h2>
-  <p>Click below to pay the $50 application fee and complete your application.</p>
-  <button onclick="startPayment()">Pay Application Fee</button>
-</div>
+  <div class="card">
+    <h2>Almost Done!</h2>
+    <p>Please click the button below to securely pay your $50 application fee and complete your application.</p>
+    <button onclick="startPayment()">Pay Application Fee</button>
+  </div>
 
 <script>
-const BACKEND_URL = "https://YOUR-RENDER-URL.onrender.com"; // Replace with your Render backend URL
+const BACKEND_URL = "https://vigilant-telegram-s1i9.onrender.com"; // ✅ Your live Render backend URL
 
 async function startPayment(){
   try {
     const res = await fetch(`${BACKEND_URL}/create-checkout-session`, {
       method: "POST",
       headers: {"Content-Type":"application/json"},
-      body: JSON.stringify({ unit: "application" })
+      body: JSON.stringify({ application: true })
     });
     const data = await res.json();
     if (data.url) {
       window.location.href = data.url;
     } else {
-      alert("Error starting payment. Please try again.");
+      alert("Error starting payment session. Please try again.");
     }
   } catch (err) {
     alert("Server error: " + err.message);
