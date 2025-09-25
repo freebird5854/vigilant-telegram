@@ -7,83 +7,36 @@
 <style>
   body { font-family: sans-serif; background: #f6f8fc; padding: 2rem; }
   form { background: #fff; max-width: 700px; margin: auto; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);}
-  h1, h2 { text-align: center; margin-bottom: 1rem; }
+  h1 { text-align: center; margin-bottom: 1rem; }
   label { display: block; margin-top: 14px; font-weight: bold; }
   input, textarea { width: 100%; margin-top: 4px; padding: 10px; border: 1px solid #ccc; border-radius: 6px; }
-  .section { margin-top: 1.5rem; border-top: 1px solid #ddd; padding-top: 1rem;}
   button { margin-top: 24px; background: #2563eb; color: #fff; padding: 14px 18px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; font-size: 1.1rem; }
 </style>
 </head>
 <body>
 <h1>Rental Application</h1>
-<p style="text-align:center;">Please complete all sections before continuing to payment.</p>
 
 <form id="applicationForm">
+  <label>Full Name</label>
+  <input type="text" required>
 
-  <div class="section">
-    <h2>Personal Information</h2>
-    <label>Full Name</label>
-    <input type="text" name="fullName" required>
+  <label>Email</label>
+  <input type="email" required>
 
-    <label>Email</label>
-    <input type="email" name="email" required>
+  <label>Phone</label>
+  <input type="tel" required>
 
-    <label>Phone</label>
-    <input type="tel" name="phone" required>
+  <label>Current Address</label>
+  <input type="text" required>
 
-    <label>Date of Birth</label>
-    <input type="date" name="dob" required>
+  <label>Employer</label>
+  <input type="text" required>
 
-    <label>Driver’s License #</label>
-    <input type="text" name="license">
-  </div>
+  <label>Monthly Income</label>
+  <input type="number" required>
 
-  <div class="section">
-    <h2>Current Residence</h2>
-    <label>Current Address</label>
-    <input type="text" name="currentAddress" required>
-
-    <label>Landlord/Property Manager</label>
-    <input type="text" name="landlord">
-
-    <label>Landlord Phone</label>
-    <input type="tel" name="landlordPhone">
-
-    <label>Monthly Rent</label>
-    <input type="number" name="rent" placeholder="$">
-
-    <label>Reason for Leaving</label>
-    <textarea name="reason" rows="2"></textarea>
-  </div>
-
-  <div class="section">
-    <h2>Employment & Income</h2>
-    <label>Employer</label>
-    <input type="text" name="employer">
-
-    <label>Job Title</label>
-    <input type="text" name="jobTitle">
-
-    <label>Monthly Income</label>
-    <input type="number" name="income" placeholder="$" required>
-
-    <label>Employer Phone</label>
-    <input type="tel" name="employerPhone">
-  </div>
-
-  <div class="section">
-    <h2>References</h2>
-    <label>Reference Name</label>
-    <input type="text" name="reference">
-
-    <label>Reference Phone</label>
-    <input type="tel" name="referencePhone">
-  </div>
-
-  <div class="section">
-    <h2>Consent</h2>
-    <p>By submitting, I authorize a credit and background check for tenant screening purposes.</p>
-  </div>
+  <label>References / Notes</label>
+  <textarea rows="3"></textarea>
 
   <button type="submit">Continue to Payment</button>
 </form>
@@ -91,10 +44,19 @@
 <script>
 document.getElementById("applicationForm").addEventListener("submit", function(e){
   e.preventDefault();
-  // Optional: Here you could send data to a backend to save it
   window.location.href = "payment.html";
 });
 </script>
+
+<footer style="
+  background:#f8fafc;
+  text-align:center;
+  padding:20px 10px;
+  font-size:0.9rem;
+  margin-top:40px;
+  border-top:1px solid #e5e7eb;">
+  <a href="legal.html" style="color:#2563eb; text-decoration:none; font-weight:600; margin:0 8px;">Privacy & Terms</a>
+</footer>
 
 </body>
 </html>
