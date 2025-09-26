@@ -3,102 +3,166 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Application Payment</title>
+<title>Mile High Rentals</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  body {
-    font-family: sans-serif;
-    background: #f6f8fc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    flex-direction: column;
+  :root {--bg:#f6f8fc;--card:#fff;--ink:#0b1220;--muted:#667085;--brand:#2563eb;--brand-dark:#1d4ed8;--success:#16a34a;--shadow:0 12px 28px rgba(2,8,23,.08);--r:16px}
+  body {margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif}
+  header {height:260px;display:grid;place-items:center;color:#fff;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.45)),url('https://images.unsplash.com/photo-1520975657284-9e2d9c1a77d2?q=80&w=1600&auto=format&fit=crop') center/cover}
+  header h1 {font-size:2.2rem;background:rgba(0,0,0,0.35);padding:.6rem 1rem;border-radius:12px}
+  .grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;max-width:1200px;margin:28px auto;padding:0 16px}
+  .card {background:#fff;border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+  .carousel {position:relative;overflow:hidden}
+  .carousel img {display:none;width:100%;height:220px;object-fit:cover}
+  .carousel img.active {display:block}
+  .carousel button.prev, .carousel button.next {
+    position:absolute;top:50%;transform:translateY(-50%);
+    background:rgba(0,0,0,0.5);color:#fff;border:none;
+    font-size:1.4rem;padding:6px 10px;cursor:pointer;border-radius:50%;
   }
-  .card {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    max-width: 450px;
-    width: 90%;
-    text-align: center;
-  }
-  h2 {
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
-  }
-  p {
-    color: #444;
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-  }
-  button {
-    background: #2563eb;
-    color: #fff;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    cursor: pointer;
-    width: 100%;
-  }
-  button:hover {
-    background: #1d4ed8;
-  }
-  footer {
-    background:#f8fafc;
-    text-align:center;
-    padding:20px 10px;
-    font-size:0.9rem;
-    margin-top:40px;
-    border-top:1px solid #e5e7eb;
-    width:100%;
-  }
-  footer a {
-    color:#2563eb;
-    text-decoration:none;
-    font-weight:600;
-    margin:0 8px;
-  }
+  .carousel button.prev {left:10px}
+  .carousel button.next {right:10px}
+  .body {padding:16px}
+  .title {font-weight:700;font-size:1.1rem}
+  .meta {color:var(--muted);font-size:.92rem}
+  .price {color:var(--success);font-weight:700;margin:8px 0}
+  .desc {font-size:.95rem;margin-bottom:14px}
+  .cta {margin-top:auto;padding:14px;background:#f8fafc;border-top:1px solid #eef2f6;text-align:center}
+  .btn {background:var(--brand);color:#fff;border:none;padding:12px 18px;font-weight:600;border-radius:8px;cursor:pointer}
+  .btn:hover {background:var(--brand-dark)}
+  footer {text-align:center;font-size:0.85rem;color:var(--muted);margin:40px 0}
+  footer a {color:var(--brand);text-decoration:none;margin:0 6px}
 </style>
 </head>
 <body>
-  <div class="card">
-    <h2>Almost Done!</h2>
-    <p>Please click below to securely pay your $50 application fee and complete your application.</p>
-    <button onclick="startPayment()">Pay Application Fee</button>
-  </div>
+<header><h1>Modern Rentals in Denver</h1></header>
 
-  <footer>
-    <a href="legal.html">Privacy & Terms</a>
-  </footer>
+<main class="grid">
+
+  <!-- LoDo Loft -->
+  <article class="card">
+    <div class="carousel">
+      <img src="images/unitA_1.png" class="active" alt="LoDo Loft 1">
+      <img src="images/unitA_2.png" alt="LoDo Loft 2">
+      <img src="images/unitA_3.png" alt="LoDo Loft 3">
+      <img src="images/unitA_4.png" alt="LoDo Loft 4">
+      <img src="images/unitA_5.png" alt="LoDo Loft 5">
+      <button class="prev" onclick="prevSlide(this)">&#10094;</button>
+      <button class="next" onclick="nextSlide(this)">&#10095;</button>
+    </div>
+    <div class="body">
+      <div class="title">LoDo Loft</div>
+      <div class="meta">1770 Wynkoop St, Denver, CO</div>
+      <div class="price">$1,725/mo</div>
+      <div class="desc">Industrial-modern loft near Union Station with exposed brick, high ceilings, and open concept kitchen.</div>
+    </div>
+    <div class="cta"><button class="btn" onclick="window.location.href='application.html'">Apply Now ($50)</button></div>
+  </article>
+
+  <!-- Wash Park Flats -->
+  <article class="card">
+    <div class="carousel">
+      <img src="images/unitB_1.png" class="active" alt="Wash Park 1">
+      <img src="images/unitB_2.png" alt="Wash Park 2">
+      <img src="images/unitB_3.png" alt="Wash Park 3">
+      <img src="images/unitB_4.png" alt="Wash Park 4">
+      <img src="images/unitB_5.png" alt="Wash Park 5">
+      <button class="prev" onclick="prevSlide(this)">&#10094;</button>
+      <button class="next" onclick="nextSlide(this)">&#10095;</button>
+    </div>
+    <div class="body">
+      <div class="title">Wash Park Flats</div>
+      <div class="meta">340 E Alameda Ave, Denver, CO</div>
+      <div class="price">$1,595/mo</div>
+      <div class="desc">Bright 2BR near Wash Park with updated kitchen, hardwood floors, and shared backyard.</div>
+    </div>
+    <div class="cta"><button class="btn" onclick="window.location.href='application.html'">Apply Now ($50)</button></div>
+  </article>
+
+  <!-- Highlands Studio -->
+  <article class="card">
+    <div class="carousel">
+      <img src="images/unitC_1.png" class="active" alt="Highlands Studio 1">
+      <img src="images/unitC_2.png" alt="Highlands Studio 2">
+      <img src="images/unitC_3.png" alt="Highlands Studio 3">
+      <img src="images/unitC_4.png" alt="Highlands Studio 4">
+      <img src="images/unitC_5.png" alt="Highlands Studio 5">
+      <button class="prev" onclick="prevSlide(this)">&#10094;</button>
+      <button class="next" onclick="nextSlide(this)">&#10095;</button>
+    </div>
+    <div class="body">
+      <div class="title">Highlands Studio</div>
+      <div class="meta">3220 Tejon St, Denver, CO</div>
+      <div class="price">$1,450/mo</div>
+      <div class="desc">Stylish studio in the Highlands with modern finishes, walkable to restaurants and bars.</div>
+    </div>
+    <div class="cta"><button class="btn" onclick="window.location.href='application.html'">Apply Now ($50)</button></div>
+  </article>
+
+  <!-- Cherry Creek Modern -->
+  <article class="card">
+    <div class="carousel">
+      <img src="images/unitD_1.png" class="active" alt="Cherry Creek 1">
+      <img src="images/unitD_2.png" alt="Cherry Creek 2">
+      <img src="images/unitD_3.png" alt="Cherry Creek 3">
+      <img src="images/unitD_4.png" alt="Cherry Creek 4">
+      <img src="images/unitD_5.png" alt="Cherry Creek 5">
+      <button class="prev" onclick="prevSlide(this)">&#10094;</button>
+      <button class="next" onclick="nextSlide(this)">&#10095;</button>
+    </div>
+    <div class="body">
+      <div class="title">Cherry Creek Modern</div>
+      <div class="meta">200 Fillmore St, Denver, CO</div>
+      <div class="price">$2,050/mo</div>
+      <div class="desc">Luxury apartment steps from Cherry Creek mall. Large windows, stainless steel kitchen, spa bath.</div>
+    </div>
+    <div class="cta"><button class="btn" onclick="window.location.href='application.html'">Apply Now ($50)</button></div>
+  </article>
+
+  <!-- Park Hill Duplex -->
+  <article class="card">
+    <div class="carousel">
+      <img src="images/unitE_1.png" class="active" alt="Park Hill 1">
+      <img src="images/unitE_2.png" alt="Park Hill 2">
+      <img src="images/unitE_3.png" alt="Park Hill 3">
+      <img src="images/unitE_4.png" alt="Park Hill 4">
+      <img src="images/unitE_5.png" alt="Park Hill 5">
+      <button class="prev" onclick="prevSlide(this)">&#10094;</button>
+      <button class="next" onclick="nextSlide(this)">&#10095;</button>
+    </div>
+    <div class="body">
+      <div class="title">Park Hill Duplex</div>
+      <div class="meta">2600 Hudson St, Denver, CO</div>
+      <div class="price">$1,825/mo</div>
+      <div class="desc">Spacious duplex with fenced yard and pet-friendly policy. Close to City Park and Zoo.</div>
+    </div>
+    <div class="cta"><button class="btn" onclick="window.location.href='application.html'">Apply Now ($50)</button></div>
+  </article>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Mile High Rentals — <a href="legal.html">Privacy & Terms</a></p>
+</footer>
 
 <script>
-const BACKEND_URL = "https://vigilant-telegram-s1i9.onrender.com"; // Your Render backend
-
-async function startPayment(){
-  try {
-    const res = await fetch(`${BACKEND_URL}/create-checkout-session`, {
-      method: "POST",
-      headers: {"Content-Type":"application/json"},
-      body: JSON.stringify({ 
-        application: true,
-        success_url: "https://mile-highrentals.com/thankyou.html",
-        cancel_url: "https://mile-highrentals.com/cancel.html"
-      })
-    });
-    const data = await res.json();
-    if (data.url) {
-      window.location.href = data.url;
-    } else {
-      alert("Error starting payment session. Please try again.");
-    }
-  } catch (err) {
-    alert("Server error: " + err.message);
-  }
+function nextSlide(btn){
+  const carousel = btn.closest('.carousel');
+  const imgs = carousel.querySelectorAll('img');
+  let current = [...imgs].findIndex(i=>i.classList.contains('active'));
+  imgs[current].classList.remove('active');
+  let next = (current+1)%imgs.length;
+  imgs[next].classList.add('active');
+}
+function prevSlide(btn){
+  const carousel = btn.closest('.carousel');
+  const imgs = carousel.querySelectorAll('img');
+  let current = [...imgs].findIndex(i=>i.classList.contains('active'));
+  imgs[current].classList.remove('active');
+  let prev = (current-1+imgs.length)%imgs.length;
+  imgs[prev].classList.add('active');
 }
 </script>
+
 </body>
 </html>
